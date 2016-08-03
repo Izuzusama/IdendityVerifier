@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Izusoft.IdentityCardVerifier", "src\Izusoft.IdentityCardVerifier\Izusoft.IdentityCardVerifier.xproj", "{B7A90A8C-5ECF-41BC-AC67-F758802E7615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Izusoft.IdentityCardVerifier.Test", "Izusoft.IdentityCardVerifier.Test\Izusoft.IdentityCardVerifier.Test.csproj", "{90667E35-93BD-4A89-A6D1-46043B10A782}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,16 +22,11 @@ Global
 		{B7A90A8C-5ECF-41BC-AC67-F758802E7615}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7A90A8C-5ECF-41BC-AC67-F758802E7615}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7A90A8C-5ECF-41BC-AC67-F758802E7615}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90667E35-93BD-4A89-A6D1-46043B10A782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90667E35-93BD-4A89-A6D1-46043B10A782}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90667E35-93BD-4A89-A6D1-46043B10A782}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90667E35-93BD-4A89-A6D1-46043B10A782}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B7A90A8C-5ECF-41BC-AC67-F758802E7615} = {D4022243-646F-4EFF-A378-94052B527518}
-		{90667E35-93BD-4A89-A6D1-46043B10A782} = {D4022243-646F-4EFF-A378-94052B527518}
 	EndGlobalSection
 EndGlobal
