@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Izusoft.IdendityCardVerifier
 {
-    public class SingaporeCardVeifier : ICardVerifier
+    public class SingaporeCardVerifier : ICardVerifier
     {
         private static readonly int MaxLength = 9;
         private static readonly string[] SingaporePrefix = { "S", "T" };
