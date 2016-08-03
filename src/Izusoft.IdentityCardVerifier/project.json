@@ -17,5 +17,10 @@
         "System.Threading": "4.0.11-beta-23516"
       }
     }
+  },
+  "scripts": {
+    "postcompile": [
+      "dotnet pack --no-build --configuration %compile:Configuration%"
+    ]
   }
 }
