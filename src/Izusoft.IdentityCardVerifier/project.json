@@ -1,26 +1,28 @@
 ﻿{
-  "version": "1.0.0-*",
-  "description": "Izusoft.IdentityCardVerifier Class Library",
-  "authors": [ "jian_" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+    "version": "1.0.1-*",
+    "description": "Identity Verifier Library build using new .Net Core",
+    "authors": [ "Izuzu" ],
+    "tags": [ "singapore", "nric", "verifier" ],
+    "projectUrl": "https://github.com/Izuzusama/IdentityCardVerifier",
+    "licenseUrl": "https://github.com/Izuzusama/IdentityCardVerifier",
 
-  "frameworks": {
-    "net451": { },
-    "dotnet5.4": {
-      "dependencies": {
-        "Microsoft.CSharp": "4.0.1-beta-23516",
-        "System.Collections": "4.0.11-beta-23516",
-        "System.Linq": "4.0.1-beta-23516",
-        "System.Runtime": "4.0.21-beta-23516",
-        "System.Threading": "4.0.11-beta-23516"
-      }
+    "frameworks": {
+        "net35": { },
+        "net45": { },
+        "net451": { },
+        "dotnet5.4": {
+            "dependencies": {
+                "Microsoft.CSharp": "4.0.1-beta-23516",
+                "System.Collections": "4.0.11-beta-23516",
+                "System.Linq": "4.0.1-beta-23516",
+                "System.Runtime": "4.0.21-beta-23516",
+                "System.Threading": "4.0.11-beta-23516"
+            }
+        }
+    },
+    "scripts": {
+        "postcompile": [
+            "dotnet pack --no-build --configuration %compile:Configuration%"
+        ]
     }
-  },
-  "scripts": {
-    "postcompile": [
-      "dotnet pack --no-build --configuration %compile:Configuration%"
-    ]
-  }
 }
