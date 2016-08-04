@@ -37,31 +37,45 @@ namespace Izusoft.IdendityCardVerifier
             { 9, "L" },
             { 10, "K" }
         };
+        private static readonly Dictionary<string, int> PrefixAdditional = new Dictionary<string, int>
+        {
+            {"G", 4 },
+            {"T", 4 }
+        };
         public bool TryVerify(string identityCard)
         {
             if (identityCard.Length != MaxLength) return false;
-            if (!SingaporePrefix.Any(identityCard.StartsWith)) return VerifySg(identityCard);
-            if (!OtherPrefix.Any(identityCard.StartsWith)) return VerifyOther(identityCard);
+            if (SingaporePrefix.Any(identityCard.StartsWith)) return VerifySg(identityCard);
+            if (OtherPrefix.Any(identityCard.StartsWith)) return VerifyOther(identityCard);
             return false;
         }
 
         private bool VerifySg(string identityCard)
         {
+            int additional = GetAdditional(identityCard);
             int checkSumDigit;
-            if (!TryCalculateCheckDigit(identityCard, out checkSumDigit)) return false;
+            if (!TryCalculateCheckDigit(identityCard, additional, out checkSumDigit)) return false;
             string checkSumCharacter = SingaporePostfix[checkSumDigit];
             return identityCard.EndsWith(checkSumCharacter);
         }
 
         private bool VerifyOther(string identityCard)
         {
+            int additional = GetAdditional(identityCard);
             int checkSumDigit;
-            if (!TryCalculateCheckDigit(identityCard, out checkSumDigit)) return false;
+            if (!TryCalculateCheckDigit(identityCard, additional, out checkSumDigit)) return false;
             string checkSumCharacter = OtherPostfix[checkSumDigit];
             return identityCard.EndsWith(checkSumCharacter);
         }
-
-        private bool TryCalculateCheckDigit(string identityCard, out int calculatedChcekDigit)
+        private int GetAdditional(string idendityCard)
+        {
+            if (PrefixAdditional.ContainsKey(idendityCard.FirstOrDefault().ToString()))
+            {
+                return PrefixAdditional[idendityCard.FirstOrDefault().ToString()];
+            }
+            return 0;
+        }
+        private bool TryCalculateCheckDigit(string identityCard, int additional, out int calculatedChcekDigit)
         {
             calculatedChcekDigit = -1;
             int totalCalculatedDigit = 0;
@@ -69,13 +83,13 @@ namespace Izusoft.IdendityCardVerifier
             for (int i = 0; i < digitOnly.Length; i++)
             {
                 int digit;
-                if (int.TryParse(digitOnly, out digit))
+                if (!int.TryParse(digitOnly.Substring(i, 1), out digit))
                 {
                     return false;
                 }
                 totalCalculatedDigit += digit * Multiples[i];
             }
-            calculatedChcekDigit = totalCalculatedDigit % 11;
+            calculatedChcekDigit = (additional + totalCalculatedDigit) % 11;
             return true;
         }
     }
