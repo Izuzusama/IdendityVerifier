@@ -1,5 +1,5 @@
 ﻿{
-    "version": "1.0.1-*",
+    "version": "1.0.2-*",
     "description": "Identity Verifier Library build using new .Net Core",
     "authors": [ "Izuzu" ],
     "tags": [ "singapore", "nric", "verifier" ],
